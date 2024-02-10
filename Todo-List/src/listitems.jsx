@@ -90,7 +90,7 @@ setEdit(pre=>{
   <Box sx={{backgroundColor:'#333',borderRadius:'25px',width:'500px',padding:'10px 15px 10px 15px'}}>
     <div>
     <div>
-        <h1 style={{textAlign:'center',margin:'15px',color:'white'}}>Todos</h1>
+        <h1 style={{fontFamily:'sans-serif',textAlign:'center',margin:'15px',color:'white'}}>Todos</h1>
         <hr />
       {todos.map(todo=>(
   <List key={todo.id} todo={todo} toggle={()=>toggle(todo.id)} tododelete={handleDelete} todoedit={handleedit}/>
@@ -100,8 +100,8 @@ setEdit(pre=>{
     </div>
     {open ? null:<Zoom  in={!open}
           timeout={ { enter: 500 }}><div style={{textAlign:'center'}}>
-    <IconButton sx={{color:'white',width:'150px',height:'50px',borderRadius:'20px',margin:'15px'}} onClick={toggleopen}>
-    <AddIcon sx={{color:'white',width:'30px',height:'30px',}}/>
+    <IconButton sx={{color:'white',width:'150px',height:'50px',borderRadius:'20px',margin:'15px',fontFamily:'cursive'}} onClick={toggleopen}>
+    <AddIcon sx={{color:'white',width:'30px',height:'30px'}}/>
     AddTodo</IconButton></div></Zoom>}
     {open &&<Zoom  in={open}
            timeout={{ enter: 500 }}>

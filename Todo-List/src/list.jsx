@@ -16,7 +16,7 @@ todoedit(todo.id);
         
         <div style={{cursor:'pointer',display:'inline-flex',justifyContent:'space-around'}} onClick={toggle}> 
         <Checkbox sx={{color:'white',mr:'20px'}} checked={todo.completed}/>
-       <p style={{textDecoration:todo.completed?'line-through':'none',width:'300px',wordBreak:'break-all',fontSize:'25px',margin:'15px 0',color:'white',textTransform:'capitalize'}}>{todo.msg}</p>
+       <p style={{fontFamily:'cursive',textDecoration:todo.completed?'line-through':'none',width:'300px',wordBreak:'break-all',fontSize:'25px',margin:'15px 0',color:'white',textTransform:'capitalize'}}>{todo.msg}</p>
        <IconButton aria-label="delete" sx={{color:'white',marginLeft:'30px'}} onClick={todosdelete}>
        <DeleteIcon />
      </IconButton></div>
