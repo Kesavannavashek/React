@@ -10,19 +10,30 @@ import Zoom from '@mui/material/Zoom';
 
 const getTodos=()=>{
   const data = JSON.parse(localStorage.getItem("todos"));
-  if (!data) return [];
+  if (!data){
+    
+    return [];
+  } 
   return data;
 };
 function Listitems() {
+
   const[todos,settodos]=useState(getTodos)
+
       useEffect(()=>{
       localStorage.setItem("todos", JSON.stringify(todos));
+      if(todos.length === 0)
+      setopen(false)
     },[todos])
 
-  
+    
+   
+
   const[open,setopen]=useState(false)
   const[edit,setEdit]=useState({editext:null,isEditext:false,id:null})
 
+
+ 
 
   const toggle=(id)=>{
    settodos(prevtodo=>(
@@ -33,8 +44,7 @@ function Listitems() {
        return todo
 })
    ))
-   
-
+  
 }
 
 const finalEdit = (text, id) => {
@@ -64,6 +74,7 @@ settodos(prevtodo=>{
 })
 
   })}
+  
 
 const handleedit=(id)=>{
     setopen(true)
@@ -82,17 +93,18 @@ setEdit(pre=>{
         <h1 style={{textAlign:'center',margin:'15px',color:'white'}}>Todos</h1>
         <hr />
       {todos.map(todo=>(
-  <List todo={todo} toggle={()=>toggle(todo.id)} tododelete={handleDelete} todoedit={handleedit}/>
+  <List key={todo.id} todo={todo} toggle={()=>toggle(todo.id)} tododelete={handleDelete} todoedit={handleedit}/>
        ))
       }
     
     </div>
-    {open ? null:<div style={{textAlign:'center'}}>
-    <IconButton sx={{color:'white',width:'100px',height:'100px',}} onClick={toggleopen}>
-    <AddIcon sx={{color:'white',width:'30px',height:'30px'}}/>
-    AddTodo</IconButton></div>}
+    {open ? null:<Zoom  in={!open}
+          timeout={ { enter: 500 }}><div style={{textAlign:'center'}}>
+    <IconButton sx={{color:'white',width:'150px',height:'50px',borderRadius:'20px',margin:'15px'}} onClick={toggleopen}>
+    <AddIcon sx={{color:'white',width:'30px',height:'30px',}}/>
+    AddTodo</IconButton></div></Zoom>}
     {open &&<Zoom  in={open}
-          {...(open ? { timeout: 700 } : {})}>
+           timeout={{ enter: 500 }}>
    <div> <Newtodoform addtodo={addtodo} editodo={edit} handleEdit={finalEdit}/></div>
   </Zoom> }</div></Box>
   )

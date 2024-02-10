@@ -47,7 +47,7 @@ setText(evt.target.value)
               <FormControl sx={{ m: 1, width: '25ch',color:'white'}} variant="standard" >
           <InputLabel ref={inputref} sx={{color:'white'}} htmlFor="newtodo">{editodo.isEditext?'Edit todo':isempty ? 'enter any todo' : 'Enter New Todo'}</InputLabel>
           <Input 
-          sx={{color:'white',width:'470px',margin:'auto'}} 
+          sx={{color:'white',width:'490px',margin:'auto'}} 
         autoFocus
           focused
           id='newtodo'
@@ -62,7 +62,7 @@ setText(evt.target.value)
               </InputAdornment>
             }
           />
-          {isempty ?<div style={{width:'470px',margin:'20px 0'}}> <Alert style={{width:'135px',margin:'0 auto'}} variant="filled" severity="error"> 
+          {isempty ?<div style={{width:'490px',margin:'20px 0'}}> <Alert style={{width:'135px',margin:'0 auto'}} variant="filled" severity="error"> 
   Enter Any Todo
 </Alert></div>: null}
         </FormControl>
